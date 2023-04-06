@@ -1,0 +1,57 @@
+.container {
+    flex: .6;
+    flex-shrink: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: url("https://i.ibb.co/XtgdzdY/job-bg.jpg");
+    height: 100vh;
+}
+
+.innerText{
+    margin-top: 9.375rem;
+    margin-left: 6.25rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+}
+
+#lorem{
+    margin-left: 3.125rem;
+    width: 31.25rem;
+    color: white;
+
+}
+
+footer{
+    /* margin-top: 22.25rem; */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 3.125rem;
+    align-items:center;
+}
+
+#copyright{
+    color: white;
+    margin-left: 1.5rem;
+    
+}
+
+.icons svg{
+    fill: white;
+    height: 1.25rem;
+    margin-right: 1rem;
+}
+
+.icons{
+    margin-right: 1rem;
+    display: flex;
+}
+
+/* @media all and (max-width: 1190px){
+    .conatainer{
+        width: 100vw;
+    }
+} */
