@@ -12,7 +12,7 @@ const AddLocations = ({ setSuccess,setMessage }) => {
         e.preventDefault()
         axios.post('http://localhost:4000/locations', {name, address, city, state, country})
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
         })
         .catch(err=>console.log(err.message))
         setSuccess(false)
@@ -23,7 +23,7 @@ const AddLocations = ({ setSuccess,setMessage }) => {
     <div className='formContainer'>
         <div style={{display: 'flex', justifyContent: 'space-around'}}>
             <h2>Add Location</h2>
-            <button id='show' onClick={e=>{setSuccess(false); setMessage(true)}}>Show Details</button>
+            <button id='show' onClick={()=>{setSuccess(false); setMessage(true)}}>Show Details</button>
         </div>
       <form onSubmit={handleSubmit}> 
           <div className='details'>

@@ -16,10 +16,10 @@ const User = ( {setSuccess} ) => {
       e.preventDefault()
       axios.post('http://localhost:4000/users', {name, age, email, number, role})
       .then(res=>{
-        console.log(res.data)
+        // console.log(res.data)
       })
       .catch(err=>console.log(err.message))
-      console.log(location)
+      // console.log(location)
       setSuccess(false)
     }
 
@@ -36,7 +36,7 @@ const User = ( {setSuccess} ) => {
     <div className='formContainer'>
       <div style={{display: 'flex', justifyContent: 'space-around'}}>
         <h2>User Information</h2>
-        <button id='show' onClick={e=>setSuccess(false)}>Show Details</button>
+        <button id='show' onClick={()=>setSuccess(false)}>Show Details</button>
       </div>
       <form onSubmit={handleSubmit}> 
           <div className='details'>

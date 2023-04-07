@@ -11,7 +11,7 @@ const ShowUsers = ({setSuccess, setMessage}) => {
         await axios.get('http://localhost:4000/users')
         .then((res)=> {
           setUserData(res.data)
-          console.log(userData)
+          // console.log(userData)
         })
         .catch(err=> console.log(err.message))
       }
@@ -56,7 +56,7 @@ const ShowUsers = ({setSuccess, setMessage}) => {
                   {userData.map(user=> user.role?  <p key={user._id}>{user.role}</p> : <p>--</p>)}
               </div>    
           </div>
-            <button className='add' onClick={e=> setSuccess(true)}>Add user</button>
+            <button className='add' onClick={()=> setSuccess(true)}>Add user</button>
             <h3>Location Details :</h3>
         <div className='elements'>
             <div className='element-1'>
@@ -80,7 +80,7 @@ const ShowUsers = ({setSuccess, setMessage}) => {
                 {locationData.map(location=> <p key={location._id}>{location.country}</p>)}
             </div>      
         </div>
-            <button className='add' style={{marginBottom: '3rem'}} onClick={e=> setMessage(false)}>Add Location</button>
+            <button className='add' style={{marginBottom: '3rem'}} onClick={()=> setMessage(false)}>Add Location</button>
       </div>
     </>
   )
