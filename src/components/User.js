@@ -14,7 +14,7 @@ const User = ( {setSuccess} ) => {
     
     const handleSubmit =(e) =>{
       e.preventDefault()
-      axios.post('http://localhost:4000/users', {name, age, email, number, role})
+      axios.post('http://localhost:9000/users', {name, age, email, number, role})
       // .then(res=>{
       //   console.log(res.data)
       // })
@@ -24,7 +24,7 @@ const User = ( {setSuccess} ) => {
     }
 
     useEffect(()=>{
-      axios.get('http://localhost:4000/locations')
+      axios.get('http://localhost:9000/locations')
       .then(res=>{
         // console.log(res.data)
         setLocations(res.data)

@@ -8,7 +8,7 @@ const ShowUsers = ({setSuccess, setMessage}) => {
 
     useEffect(()=>{
       const fetchData = async () =>{
-        await axios.get('http://localhost:4000/users')
+        await axios.get('http://localhost:9000/users')
         .then((res)=> {
           setUserData(res.data)
           // console.log(userData)
@@ -17,7 +17,7 @@ const ShowUsers = ({setSuccess, setMessage}) => {
       }
       fetchData()
       const fetchLocation = async ()=>{
-        await axios.get('http://localhost:4000/locations')
+        await axios.get('http://localhost:9000/locations')
         .then((res)=>{
           setLocationData(res.data)
         })
