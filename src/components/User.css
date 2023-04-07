@@ -7,6 +7,10 @@
     border-left: 1px solid black;
 }
 
+#show{
+    background-color: #2AAA8A !important;
+}
+
 h2{
     padding-left: 0.7rem;
 }
