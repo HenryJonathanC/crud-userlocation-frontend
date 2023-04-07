@@ -11,10 +11,10 @@ const AddLocations = ({ setSuccess,setMessage }) => {
     const handleSubmit = (e) =>{
         e.preventDefault()
         axios.post('http://localhost:4000/locations', {name, address, city, state, country})
-        .then(res=>{
-            // console.log(res.data)
-        })
-        .catch(err=>console.log(err.message))
+        // .then(res=>{
+        //     console.log(res.data)
+        // })
+        // .catch(err=>console.log(err.message))
         setSuccess(false)
         setMessage(true)
     }

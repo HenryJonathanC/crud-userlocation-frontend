@@ -15,10 +15,10 @@ const User = ( {setSuccess} ) => {
     const handleSubmit =(e) =>{
       e.preventDefault()
       axios.post('http://localhost:4000/users', {name, age, email, number, role})
-      .then(res=>{
-        // console.log(res.data)
-      })
-      .catch(err=>console.log(err.message))
+      // .then(res=>{
+      //   console.log(res.data)
+      // })
+      // .catch(err=>console.log(err.message))
       // console.log(location)
       setSuccess(false)
     }
@@ -29,7 +29,7 @@ const User = ( {setSuccess} ) => {
         // console.log(res.data)
         setLocations(res.data)
       })
-      .catch(err=>console.log(err.message))
+      // .catch(err=>console.log(err.message))
     },[])
 
   return (
@@ -48,7 +48,7 @@ const User = ( {setSuccess} ) => {
                 <div className='drop1'>
                   <label htmlFor='location'>Select Location:</label>
                   <select value={location} name='location' onChange={e=>setLocation(e.target.value)}>
-                    {locations.map(location=> <option key={location._id}>{location.city}</option>)}
+                    {locations.map(loc=> <option key={loc._id}>{loc.city}</option>)}
                   </select>
                 </div>
                 <div className='drop1'>

@@ -13,7 +13,7 @@ const ShowUsers = ({setSuccess, setMessage}) => {
           setUserData(res.data)
           // console.log(userData)
         })
-        .catch(err=> console.log(err.message))
+        // .catch(err=> console.log(err.message))
       }
       fetchData()
       const fetchLocation = async ()=>{
@@ -21,7 +21,7 @@ const ShowUsers = ({setSuccess, setMessage}) => {
         .then((res)=>{
           setLocationData(res.data)
         })
-        .catch(err=> console.log(err.message))
+        // .catch(err=> console.log(err.message))
       }
       fetchLocation()
     }, [])
