@@ -48,3 +48,15 @@ button{
 .add{
     background-color: #1A5F7A !important;
 }
+
+#edit{
+    height: 2.1rem;
+}
+
+#trash{
+    height: 2.1rem;
+}
+
+#edit:hover, #trash:hover{
+    cursor: pointer;
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './User.css'
 import axios from 'axios'
 
-const User = ( {setSuccess} ) => {
+const User = ( {setSuccess, setAdmin} ) => {
     const [name, setName]= useState('')
     const [age, setAge]= useState()
     const[email, setEmail]=useState('')
@@ -20,6 +20,7 @@ const User = ( {setSuccess} ) => {
       // })
       // .catch(err=>console.log(err.message))
       // console.log(location)
+      {role==='Admin' && setAdmin(true) }
       setSuccess(false)
     }
 
@@ -47,8 +48,8 @@ const User = ( {setSuccess} ) => {
               <div className='drop'>
                 <div className='drop1'>
                   <label htmlFor='location'>Select Location:</label>
-                  <select value={location} name='location' onChange={e=>setLocation(e.target.value)}>
-                    {locations.map(loc=> <option key={loc._id}>{loc.city}</option>)}
+                  <select value={location} name='location' onChange={e=>{setLocation(e.target.id); console.log(e.target.id)}}>
+                    {locations.map(loc=> <option id={loc._id} key={loc._id}>{loc.city}</option>)}
                   </select>
                 </div>
                 <div className='drop1'>

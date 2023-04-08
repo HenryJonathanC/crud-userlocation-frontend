@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './ShowUsers.css'
+import { Link } from 'react-router-dom'
 
-const ShowUsers = ({setSuccess, setMessage}) => {
+const ShowUsers = ({admin, setAdmin, setSuccess, setMessage}) => {
   const [userData, setUserData] = useState([])
   const [locationData, setLocationData] = useState([])
 
@@ -25,6 +26,22 @@ const ShowUsers = ({setSuccess, setMessage}) => {
       }
       fetchLocation()
     }, [])
+
+    const editUser =(id) =>{
+
+    }
+
+    const trashUser = (id) => {
+      axios.delete(`http://localhost:9000/users/${id}`)
+    }
+
+    const editLocation = (id) => {
+
+    }
+
+    const trashLocation = (id) => {
+      axios.delete(`http://localhost:9000/locations/${id}`)
+    }
 
   return (
     <>
@@ -49,12 +66,28 @@ const ShowUsers = ({setSuccess, setMessage}) => {
               </div>      
               <div className='element-4'>
                   <h4>Location</h4>
-                  {userData.map(user=> user.location ? <p key={user._id}>{user.location.city}</p> : <p>-- </p>)}
+                  {userData.map(user=> user.location ? <p key={user._id}>{user.location.city}</p> : <p key={Math.random()}>-- </p>)}
               </div>      
               <div className='element-4'>
                   <h4>User-Role</h4>
-                  {userData.map(user=> user.role?  <p key={user._id}>{user.role}</p> : <p>--</p>)}
+                  {userData.map(user=> user.role?  <p key={user._id}>{user.role}</p> : <p key={Math.random()}>--</p>)}
               </div>    
+              {admin && 
+                <>
+                  <div className='element-4'>
+                      <h4>Edit</h4>
+                      {userData.map(user=> <>
+                          <Link to={{ pathname: `/edit/${user._id}`}}>
+                            <img key={user._id} onClick={()=>editUser(user._id)} id='edit' src='https://cdn-icons-png.flaticon.com/512/2356/2356780.png'/> <br/>
+                          </Link>
+                        </>)}
+                  </div> 
+                  <div className='element-4'>
+                      <h4>Delete</h4>
+                      {userData.map(user=> <><img key={user._id} onClick={()=>trashUser(user._id)} id='trash' src='https://cdn-icons-png.flaticon.com/512/1214/1214428.png'/> <br/></>)}
+                  </div> 
+                </>
+              }              
           </div>
             <button className='add' onClick={()=> setSuccess(true)}>Add user</button>
             <h3>Location Details :</h3>
@@ -78,7 +111,19 @@ const ShowUsers = ({setSuccess, setMessage}) => {
             <div className='element-4'>
                 <h4>Country</h4>
                 {locationData.map(location=> <p key={location._id}>{location.country}</p>)}
-            </div>      
+            </div> 
+            {admin && 
+                <>
+                  <div className='element-4'>
+                      <h4>Edit</h4>
+                      {locationData.map(location=> <><img key={location._id} onClick={()=>editLocation(location._id)} id='edit' src='https://cdn-icons-png.flaticon.com/512/2356/2356780.png'/> <br/></>)}
+                  </div> 
+                  <div className='element-4'>
+                      <h4>Delete</h4>
+                      {locationData.map(location=> <><img key={location._id} onClick={()=>trashLocation(location._id)} id='trash' src='https://cdn-icons-png.flaticon.com/512/1214/1214428.png'/> <br/></>)}
+                  </div> 
+                </>
+              }             
         </div>
             <button className='add' style={{marginBottom: '3rem'}} onClick={()=> setMessage(false)}>Add Location</button>
       </div>
